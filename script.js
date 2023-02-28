@@ -121,12 +121,12 @@ function displayData(data) {
                 <p class="descriptionP">Description:<span class="description">${data[i].description}</span></p>
                 <p><span class="price">${data[i].price} $</span></p>
                 <p>
-                    Rating:<span class="rating">${data[i].rating}</span>
+                    <span class="rating">${data[i].rating}</span>
                     <i class="fa-solid fa-star gold"></i>
                 </p>
-                <p>Stock:<span class="stock">${data[i].stock}</span></p>
-                <p>Brand:<span class="brand">${data[i].brand}</span></p>
-                <p>Category:<span class="category">${data[i].category}</span></p>
+                <p class="stockP">Stock:<span class="stock">${data[i].stock}</span></p>
+                <p class="brandP">Brand:<span class="brand">${data[i].brand}</span></p>
+                <p class="categoryP">Category:<span class="category">${data[i].category}</span></p>
             </div>
             <div class="addToCartDiv">
                 <button type="button" class="ATCBtn">Add To Cart</button>

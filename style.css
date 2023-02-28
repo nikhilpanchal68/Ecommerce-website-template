@@ -108,7 +108,6 @@ button.categoryBtn:hover::after {
 }
 
 .item {
-    /* box-shadow: 2px 2px 2px grey; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
     margin: 10px;
@@ -153,10 +152,6 @@ button.categoryBtn:hover::after {
     color: red;
 }
 
-.descriptionP {
-    display: none;
-}
-
 .ATCBtn {
     padding: 10px;
     background-color: 4bc74b;
@@ -167,6 +162,7 @@ button.categoryBtn:hover::after {
     cursor: pointer;
 }
 
+/* responsive */
 @media screen and (max-width: 992px) {
     .item {
         margin: 10px;
@@ -192,4 +188,18 @@ button.categoryBtn:hover::after {
         width: 100%;
         text-align: center;
     }
+}
+
+/* <p> with below classes in products are hidden for now  */
+.descriptionP {
+    display: none;
+}
+.stockP {
+    display: none;
+}
+.brandP{
+    display: none;
+}
+.categoryP{
+    display: none;
 }
