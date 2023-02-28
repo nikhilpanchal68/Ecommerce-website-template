@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mlr-10{
+    margin: 0px 10px;
+}
+/* below class apply on rating favIcon */
+.gold {
+    color: #FFD700;
+}
+
+#container {
+    padding: 15px;
+}
+
+#header {
+    text-align: center;
+}
+
+/* buttons and it's div style */
+.catergoriesDiv {
+    text-align: center;
+    margin: 15px 0;
+}
+
+button.categoryBtn {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    color: grey;
+    background-color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+button.categoryBtn::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #555;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+button.categoryBtn:hover {
+    color: #555;
+    font-weight: bolder;
+}
+
+button.categoryBtn:hover::after {
+    width: 100%;
+}
+
+/* below class are applied on category buttons after onclick event */
+.active-btn {
+    color: black!important;
+    font-size: 20px;
+}
+.active-btn::after{
+    width: 100% !important;
+}
+
+/*--------- selection dropdowns */
+.selections {
+    display: flex;
+    justify-content: center;
+}
+.brandDiv{
+    width: 50%;
+    text-align: center;
+}
+.sortDiv{
+    width: 50%;
+    text-align: center;
+}
+.selectionTitle {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px;
+}
+
+.select {
+    margin: 10px;
+    border: none;
+    color: grey;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: none;
+}
+
+/* items and it's style */
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    /* box-shadow: 2px 2px 2px grey; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    margin: 10px;
+    width: 30%;
+    transition: all 0.2s ease-in-out;
+}
+
+.item:hover {
+    scale: 1.05;
+}
+
+.itemImage {
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.itemImage img {
+    width: 100%;
+    height: 275px;
+}
+
+.itemImage span.discountPercentage {
+    background-color: #258f25;
+    padding: 10px;
+    color: white;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.itemInfo p {
+    padding: 10px 0px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.price {
+    color: red;
+}
+
+.descriptionP {
+    display: none;
+}
+
+.ATCBtn {
+    padding: 10px;
+    background-color: 4bc74b;
+    background-color: #258f25;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+    .item {
+        margin: 10px;
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .item {
+        margin: 10px;
+        width: 80%;
+    }
+    .selections {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .brandDiv{
+        width: 100%;
+        text-align: center;
+    }
+    .sortDiv{
+        width: 100%;
+        text-align: center;
+    }
+}
