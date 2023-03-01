@@ -1,5 +1,7 @@
-let items = $(".items");
+// select all category button by class name
+let categoryBtn = document.querySelectorAll(".categoryBtn");
 
+let items = $(".items");
 //category buttons
 let allBtn = $("#allBtn")
 let smartPhonesbtn = $("#smartPhonesbtn")
@@ -8,8 +10,18 @@ let fragrancesBtn = $("#fragrancesBtn")
 let skinCaresBtn = $("#skinCaresBtn")
 let groceriesBtn = $("#groceriesBtn")
 let homeDecorBtn = $("#homeDecorBtn")
-let categoryBtn = document.querySelectorAll(".categoryBtn");
-console.log(categoryBtn)
+
+//sort options
+let sortBySelect = $("#sortBySelect")
+
+//delete below declarations in the end if will not use it 
+let defaultOption = $("#defaultOption")
+let PLHOption = $("#PLHOption")
+let PHLOption = $("#PHLOption")
+let ratingOption = $("#ratingOption")
+let discountOption = $("#discountOption");
+
+
 //ajax call to fetch data
 $.ajax({
     url: "https://dummyjson.com/products", success: function ajaxData(result) {
@@ -102,8 +114,66 @@ $.ajax({
             console.log(homeDecorArry)
             displayData(homeDecorArry)
         })
+
+        //select dropdown
+        sortBySelect.change(function () {
+            getelementfromdropdown()  
+        });
+        function getelementfromdropdown() {
+            var value =sortBySelect.val();
+            
+            if (value == "default") {
+                defaultFunc()
+            } 
+            else if (value == "l2h") {
+                priceLow2High()
+            } 
+            else if (value == "h2l") {
+                priceHigh2Low()
+            } 
+            else if (value == "rating") {
+                rating();
+            }
+            else if (value == "discount") {
+                discount();
+            }
+        }
+
+        function defaultFunc() {
+            displayData(data);
+        }
+        function priceLow2High(){
+            let datal2h = Array.from(data);
+            datal2h.sort(function(a, b) {
+                return (a.price) - (b.price);
+            });
+            displayData(datal2h);
+        }
+        function priceHigh2Low(){
+            let datah2l = Array.from(data);
+            datah2l.sort(function(a, b) {
+                return (b.price) - (a.price);
+            });
+            displayData(datah2l);
+        }
+        function rating(){
+            let dataRating = Array.from(data);
+            dataRating.sort(function(a, b) {
+                return (b.rating) - (a.rating);
+            });
+            displayData(dataRating);
+        }
+        function discount(){
+            let dataDiscount = Array.from(data);
+            dataDiscount.sort(function(a, b) {
+                return (b.discountPercentage) - (a.discountPercentage);
+            });
+            console.log(dataDiscount);
+            displayData(dataDiscount);
+        }
     }
 });
+
 
 //function to display data
 function displayData(data) {
