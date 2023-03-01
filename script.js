@@ -1,8 +1,10 @@
-// select all category button by class name
-let categoryBtn = document.querySelectorAll(".categoryBtn");
-
+//items div to append item.
 let items = $(".items");
-//category buttons
+
+// select all category button by class name
+let categoryBtn = $(".categoryBtn");
+
+//individual category buttons
 let allBtn = $("#allBtn")
 let smartPhonesbtn = $("#smartPhonesbtn")
 let laptopsBtn = $("#laptopsBtn")
@@ -11,16 +13,8 @@ let skinCaresBtn = $("#skinCaresBtn")
 let groceriesBtn = $("#groceriesBtn")
 let homeDecorBtn = $("#homeDecorBtn")
 
-//sort options
+//sort by select tag
 let sortBySelect = $("#sortBySelect")
-
-//delete below declarations in the end if will not use it 
-let defaultOption = $("#defaultOption")
-let PLHOption = $("#PLHOption")
-let PHLOption = $("#PHLOption")
-let ratingOption = $("#ratingOption")
-let discountOption = $("#discountOption");
-
 
 //ajax call to fetch data
 $.ajax({
@@ -28,154 +22,169 @@ $.ajax({
         let data = result.products;
         console.log(data);
 
-        //bydefault displaying all data
+        //bydefault displaying all data and sortby selection event
         displayData(data);
+        sortFunc(data);
 
-        //all button onclicke event and display all data
+        //all button onclick event and display all data
         allBtn.click(function () {
-            console.log(data);
+            //here data is bydefault data
             displayData(data);
+            sortFunc(data)
         })
 
-        //smartphone button onclick event and generating array
-        smartPhonesbtn.click(function() {
+        //smartphone button onclick event and generating array from smartphones category data
+        smartPhonesbtn.click(function () {
+            //here data is smartPhonesArry
             let smartPhonesArry = [];
             //below function generates new smartPhonesArry
-            for(i=0;i<data.length;i++) {
-                if(data[i].category == "smartphones") {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].category == "smartphones") {
                     smartPhonesArry.push(data[i]);
                 }
             }
-            console.log(smartPhonesArry)
-            displayData(smartPhonesArry)
+            displayData(smartPhonesArry);
+            sortFunc(smartPhonesArry);
         })
 
-        //laptop button onclick event and generating array
-        laptopsBtn.click(function() {
+        //laptop button onclick event and generating array from laptops category data
+        laptopsBtn.click(function () {
+            //here data is laptopsArry
             let laptopsArry = [];
             //below function generates new laptopsArry
-            for(i=0;i<data.length;i++) {
-                if(data[i].category == "laptops") {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].category == "laptops") {
                     laptopsArry.push(data[i]);
                 }
             }
-            console.log(laptopsArry)
-            displayData(laptopsArry)
+            displayData(laptopsArry);
+            sortFunc(laptopsArry)
         })
 
-        //fragnances button onclick event and generating array
-        fragrancesBtn.click(function() {
+        //fragnances button onclick event and generating array from fragrances category data
+        fragrancesBtn.click(function () {
+            //here data is fragnancesArry
             let fragnancesArry = [];
             //below function generates new fragnancesArry
-            for(i=0;i<data.length;i++) {
-                if(data[i].category == "fragrances") {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].category == "fragrances") {
                     fragnancesArry.push(data[i]);
                 }
             }
-            console.log(fragnancesArry)
-            displayData(fragnancesArry)
+            displayData(fragnancesArry);
+            sortFunc(fragnancesArry);
         })
 
-        //skinCares button onclick event and generating array
-        skinCaresBtn.click(function() {
+        //skinCares button onclick event and generating array from skincares category data
+        skinCaresBtn.click(function () {
+            //here data is skinCaresArry
             let skinCaresArry = [];
             //below function generates new skinCaresArry
-            for(i=0;i<data.length;i++) {
-                if(data[i].category == "skincare") {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].category == "skincare") {
                     skinCaresArry.push(data[i]);
                 }
             }
-            console.log(skinCaresArry)
-            displayData(skinCaresArry)
+            displayData(skinCaresArry);
+            sortFunc(skinCaresArry);
         })
 
-        //groceries button onclick event and generating array
-        groceriesBtn.click(function() {
+        //groceries button onclick event and generating array from groceries category data
+        groceriesBtn.click(function () {
+            //here data is groceriesArry
             let groceriesArry = [];
             //below function generates new groceriesArry
-            for(i=0;i<data.length;i++) {
-                if(data[i].category == "groceries") {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].category == "groceries") {
                     groceriesArry.push(data[i]);
                 }
             }
-            console.log(groceriesArry)
-            displayData(groceriesArry)
+            displayData(groceriesArry);
+            sortFunc(groceriesArry);
         })
 
-        //homeDecor button onclick event and generating array
-        homeDecorBtn.click(function() {
+        //homeDecor button onclick event and generating array from home-decor category data
+        homeDecorBtn.click(function () {
+            //here data is homeDecorArry
             let homeDecorArry = [];
             //below function generates new homeDecorArry
-            for(i=0;i<data.length;i++) {
-                if(data[i].category == "home-decoration") {
+            for (i = 0; i < data.length; i++) {
+                if (data[i].category == "home-decoration") {
                     homeDecorArry.push(data[i]);
                 }
             }
-            console.log(homeDecorArry)
-            displayData(homeDecorArry)
+            displayData(homeDecorArry);
+            sortFunc(homeDecorArry);
         })
 
-        //select dropdown
-        sortBySelect.change(function () {
-            getelementfromdropdown()  
-        });
-        function getelementfromdropdown() {
-            var value =sortBySelect.val();
-            
-            if (value == "default") {
-                defaultFunc()
-            } 
-            else if (value == "l2h") {
-                priceLow2High()
-            } 
-            else if (value == "h2l") {
-                priceHigh2Low()
-            } 
-            else if (value == "rating") {
-                rating();
+
+        //select change options function
+        function sortFunc(data) {
+            sortBySelect.val("default");
+            sortBySelect.change(function () {
+                getelementfromdropdown(data)
+            });
+
+            //below function select particular option value and run particular function to sorting data
+            function getelementfromdropdown(data) {
+                var value = sortBySelect.val();
+                if (value == "default") {
+                    defaultFunc(data)
+                }
+                else if (value == "l2h") {
+                    priceLow2High(data)
+                }
+                else if (value == "h2l") {
+                    priceHigh2Low(data)
+                }
+                else if (value == "rating") {
+                    rating(data);
+                }
+                else if (value == "discount") {
+                    discount(data);
+                }
             }
-            else if (value == "discount") {
-                discount();
+
+            //below all functions sort data for individual options selection
+            function defaultFunc(data) {
+                displayData(data);
+            }
+            function priceLow2High(data) {
+                let datal2h = Array.from(data);
+                datal2h.sort(function (a, b) {
+                    return (a.price) - (b.price);
+                });
+                displayData(datal2h);
+            }
+            function priceHigh2Low(data) {
+                let datah2l = Array.from(data);
+                datah2l.sort(function (a, b) {
+                    return (b.price) - (a.price);
+                });
+                displayData(datah2l);
+            }
+            function rating(data) {
+                let dataRating = Array.from(data);
+                dataRating.sort(function (a, b) {
+                    return (b.rating) - (a.rating);
+                });
+                displayData(dataRating);
+            }
+            function discount(data) {
+                let dataDiscount = Array.from(data);
+                dataDiscount.sort(function (a, b) {
+                    return (b.discountPercentage) - (a.discountPercentage);
+                });
+                console.log(dataDiscount);
+                displayData(dataDiscount);
             }
         }
 
-        function defaultFunc() {
-            displayData(data);
-        }
-        function priceLow2High(){
-            let datal2h = Array.from(data);
-            datal2h.sort(function(a, b) {
-                return (a.price) - (b.price);
-            });
-            displayData(datal2h);
-        }
-        function priceHigh2Low(){
-            let datah2l = Array.from(data);
-            datah2l.sort(function(a, b) {
-                return (b.price) - (a.price);
-            });
-            displayData(datah2l);
-        }
-        function rating(){
-            let dataRating = Array.from(data);
-            dataRating.sort(function(a, b) {
-                return (b.rating) - (a.rating);
-            });
-            displayData(dataRating);
-        }
-        function discount(){
-            let dataDiscount = Array.from(data);
-            dataDiscount.sort(function(a, b) {
-                return (b.discountPercentage) - (a.discountPercentage);
-            });
-            console.log(dataDiscount);
-            displayData(dataDiscount);
-        }
     }
 });
 
 
-//function to display data
+//main function to append div on base of api data
 function displayData(data) {
     items.html("")
     for (i = 0; i < data.length; i++) {
@@ -207,19 +216,19 @@ function displayData(data) {
     }
 }
 
-//add class on category button selection
-categoryBtn.forEach(btn => {
-    btn.addEventListener('click', ()=>{
+//add class on individual category button on click
+categoryBtn.each(function () {
+    $(this).click(function () {
         resetActiveBtn();
-        btn.classList.add("active-btn")
+        $(this).addClass("active-btn")
     })
 });
 
 //remove class on category buttons when clicking another button
-function resetActiveBtn(){
-    categoryBtn.forEach(btn => {
-            btn.classList.remove("active-btn")
-    });
+function resetActiveBtn() {
+    categoryBtn.each(function () {
+        categoryBtn.removeClass("active-btn")
+    })
 }
 
 

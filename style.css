@@ -66,6 +66,7 @@ button.categoryBtn:hover::after {
     color: black!important;
     font-size: 20px;
 }
+
 .active-btn::after{
     width: 100% !important;
 }
@@ -75,14 +76,17 @@ button.categoryBtn:hover::after {
     display: flex;
     justify-content: center;
 }
+
 .brandDiv{
     width: 50%;
     text-align: center;
 }
+
 .sortDiv{
     width: 50%;
     text-align: center;
 }
+
 .selectionTitle {
     font-weight: bold;
     text-transform: uppercase;
