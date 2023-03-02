@@ -24,7 +24,7 @@ $.ajax({
         //bydefault displaying all data and sortby selection event
         displayData(data);
         sortFunc(data);
-       
+
         //all button onclick event and display all data
         allBtn.click(function () {
             //here data is bydefault data
@@ -208,12 +208,58 @@ function displayData(data) {
                 <p class="brandP">Brand:<span class="brand">${data[i].brand}</span></p>
                 <p class="categoryP">Category:<span class="category">${data[i].category}</span></p>
             </div>
-            <div class="addToCartDiv">
-                <button type="button" class="ATCBtn">Add To Cart</button>
+            <div class="itemButtonsDiv">
+                <div class="addToCartDiv">
+                    <button type="button" class="ATCBtn">Add To Cart</button>
+                </div>
+
+                <div class="infoDiv">
+                    <button type ="button" class="infoBtn">Info</button> 
+                </div>
             </div>
         </div>
         `);
         items.append(div);
+
+
+        //below declarations are for info div and it's elements
+        let infoDiv = $("#infoDiv");
+        let closeInfoBtn = $("#closeInfoBtn");
+        let infoBtn = $(".infoBtn");
+        let imageInfo = $(".imageInfo")
+        let titleInfo = $(".titleInfo");
+        let descriptionInfo = $(".descriptionInfo");
+        let priceInfo = $(".priceInfo");
+        let discountInfo = $(".discountInfo");
+        let ratingInfo = $(".ratingInfo");
+        let stockInfo = $(".stockInfo");
+        let brandInfo = $(".brandInfo");
+        let categoryInfo = $(".categoryInfo");
+
+        //event on clicking info button on item
+        infoBtn.each(function (e) {
+            $(this).click(function () {
+                items.css({ "opacity": "0.5" });
+                infoDiv.css({ "display": "block", "opacity": "1", "transition": "all 0.2s ease" });
+                imageInfo.attr("src", data[e].images[0]);
+                titleInfo.html(data[e].title);
+                descriptionInfo.html(data[e].description);
+                priceInfo.html(data[e].price);
+                discountInfo.html(data[e].discountPercentage);
+                ratingInfo.html(data[e].rating);
+                stockInfo.html(data[e].stock);
+                brandInfo.html(data[e].brand);
+                categoryInfo.html(data[e].category);
+            })
+        })
+
+        //event on close info button 
+        closeInfoBtn.click(function () {
+            infoDiv.css({ "display": "none", "opacity": "1", "transition": "all 10s ease" });
+            items.css({ "opacity": "1" });
+        })
+
+
     }
 }
 
