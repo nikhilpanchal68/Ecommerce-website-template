@@ -4,9 +4,6 @@
     box-sizing: border-box;
 }
 
-.mlr-10{
-    margin: 0px 10px;
-}
 /* below class apply on rating favIcon */
 .gold {
     color: #FFD700;
@@ -18,9 +15,10 @@
 
 #header {
     text-align: center;
+    margin: 15px 0px;
 }
 
-/* buttons and it's div style */
+/*catagory buttons and it's div style */
 .catergoriesDiv {
     text-align: center;
     margin: 15px 0;
@@ -63,28 +61,18 @@ button.categoryBtn:hover::after {
 
 /* below class are applied on category buttons after onclick event */
 .active-btn {
-    color: black!important;
+    color: black !important;
     font-size: 20px;
 }
 
-.active-btn::after{
+.active-btn::after {
     width: 100% !important;
 }
 
-/*--------- selection dropdowns */
-.selections {
-    display: flex;
-    justify-content: center;
-}
-
-.brandDiv{
-    width: 50%;
-    text-align: center;
-}
-
-.sortDiv{
-    width: 50%;
-    text-align: center;
+/*--------- sort by */
+.sortByDiv {
+    margin: 15px 0px;
+    text-align: right;
 }
 
 .selectionTitle {
@@ -104,19 +92,21 @@ button.categoryBtn:hover::after {
     outline: none;
 }
 
-/* items and it's style */
+/* items container*/
 .items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: 15px 0px;
 }
 
+/* item and it's elements */
 .item {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 10px;
     margin: 10px;
     width: 30%;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease;
 }
 
 .item:hover {
@@ -164,6 +154,12 @@ button.categoryBtn:hover::after {
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.ATCBtn:hover{
+    opacity: 1;
 }
 
 /* responsive */
@@ -179,31 +175,21 @@ button.categoryBtn:hover::after {
         margin: 10px;
         width: 80%;
     }
-    .selections {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .brandDiv{
-        width: 100%;
-        text-align: center;
-    }
-    .sortDiv{
-        width: 100%;
-        text-align: center;
-    }
 }
 
 /* <p> with below classes in products are hidden for now  */
 .descriptionP {
     display: none;
 }
+
 .stockP {
     display: none;
 }
-.brandP{
+
+.brandP {
     display: none;
 }
-.categoryP{
+
+.categoryP {
     display: none;
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Ecommerce Website 1</title>
+    <title>Ecommerce Website</title>
 </head>
 
 <body>
@@ -17,7 +17,6 @@
 
         <!-- categories -->
         <div class="catergoriesDiv">
-            <!-- <span class="selectionTitle">Category</span> -->
             <button class="categoryBtn" id="allBtn">All</button>
             <button class="categoryBtn" id="smartPhonesbtn">SmartPhones</button>
             <button class="categoryBtn" id="laptopsBtn">Laptops</button>
@@ -27,28 +26,18 @@
             <button class="categoryBtn" id="homeDecorBtn">Home-decoration</button>
         </div>
 
-        <!-- selections -->
-        <div class="selections">
-            <div class="brandDiv mlr-10">
-                <span class="selectionTitle">Brand</span>
-                <select class="select" id="brandSelect">
-                    <option>Brand</option>
-                    <option>Brand</option>
-                    <option>Brand</option>
-                </select>
-            </div>
-
-            <div class="sortDiv mlr-10">
-                <span class="selectionTitle">Sort By</span>
-                <select class="select" id="sortBySelect">
-                    <option value="default" id="defaultOption">Default</option>
-                    <option value="l2h" id="PLHOption">Price: Low-High</option>
-                    <option value="h2l" id="PHLOption">Price: High-Low</option>
-                    <option value="rating" id="ratingOption">Rating</option>
-                    <option value="discount" id="discountOption">Discount</option>
-                </select>
-            </div>
+        <!-- Sort by section -->
+        <div class="sortByDiv">
+            <span class="selectionTitle">Sort By</span>
+            <select class="select" id="sortBySelect">
+                <option value="default">Default</option>
+                <option value="l2h">Price: Low-High</option>
+                <option value="h2l">Price: High-Low</option>
+                <option value="rating">Rating</option>
+                <option value="discount">Discount</option>
+            </select>
         </div>
+
 
         <!-- items container -->
         <div class="items">

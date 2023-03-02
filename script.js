@@ -20,17 +20,17 @@ let sortBySelect = $("#sortBySelect")
 $.ajax({
     url: "https://dummyjson.com/products", success: function ajaxData(result) {
         let data = result.products;
-        console.log(data);
 
         //bydefault displaying all data and sortby selection event
         displayData(data);
         sortFunc(data);
-
+       
         //all button onclick event and display all data
         allBtn.click(function () {
             //here data is bydefault data
             displayData(data);
-            sortFunc(data)
+            sortFunc(data);
+            displayBrand(data);
         })
 
         //smartphone button onclick event and generating array from smartphones category data
@@ -45,6 +45,7 @@ $.ajax({
             }
             displayData(smartPhonesArry);
             sortFunc(smartPhonesArry);
+            displayBrand(smartPhonesArry);
         })
 
         //laptop button onclick event and generating array from laptops category data
@@ -211,7 +212,7 @@ function displayData(data) {
                 <button type="button" class="ATCBtn">Add To Cart</button>
             </div>
         </div>
-        // `);
+        `);
         items.append(div);
     }
 }
@@ -230,18 +231,3 @@ function resetActiveBtn() {
         categoryBtn.removeClass("active-btn")
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
