@@ -258,8 +258,6 @@ function displayData(data) {
             infoDiv.css({ "display": "none", "opacity": "1", "transition": "all 10s ease" });
             items.css({ "opacity": "1" });
         })
-
-
     }
 }
 
