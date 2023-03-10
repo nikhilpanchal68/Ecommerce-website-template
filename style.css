@@ -24,7 +24,8 @@
     margin: 15px 0;
 }
 
-button.categoryBtn {
+a.categoryBtn {
+    display: inline-block;
     margin: 10px;
     padding: 10px;
     border: none;
@@ -37,7 +38,7 @@ button.categoryBtn {
     transition: all 0.2s ease-in-out;
 }
 
-button.categoryBtn::after {
+a.categoryBtn::after {
     content: "";
     height: 2px;
     width: 0%;
@@ -50,12 +51,12 @@ button.categoryBtn::after {
     transition: all 0.2s ease-in-out;
 }
 
-button.categoryBtn:hover {
+a.categoryBtn:hover {
     color: #555;
     font-weight: bolder;
 }
 
-button.categoryBtn:hover::after {
+a.categoryBtn:hover::after {
     width: 100%;
 }
 
